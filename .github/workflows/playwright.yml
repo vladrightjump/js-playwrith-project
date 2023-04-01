@@ -5,8 +5,18 @@ on:
 jobs:
   js-playwrith-project:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.32.0-focal
+      env:
+        ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD}}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Say hello
-        run: echo Hello
+      - name: Run test
+        run: |
+          echo "Start the shoping store appication"
+          ./shopping-store-linux-amd64 &
+          echo "Install dependencies"
+          npm ci
+          echo "Run playwright test"
+           npm run test:ci
