@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Run test
+      - name: Run Tests
         run: |
           echo "Start the shoping store appication"
           ./shopping-store-linux-amd64 &
-          echo "Install dependencies"
+          echo "Install dependencies from lockfile"
           npm ci
           echo "Run playwright test"
            npm run test:ci
