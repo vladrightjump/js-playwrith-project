@@ -5,7 +5,13 @@
   },
   "scripts": {
     "test": "playwright test --headed",
-    "test:ci": "playwright test"
+    "test:ci": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:mobile": "playwright test --project=\"Mobile Chrome\"",
+    "codgen": "playwright codegen http://localhost:2221",
+    "update:snapshots": "playwright test --update-snapshots",
+    "test:chromium": "npx playwright test --project=chromium",
+    "test:pixel": "npx playwright test --project=pixel --ui"
   },
   "dependencies": {
     "dotenv": "^16.0.3",

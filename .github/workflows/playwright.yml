@@ -20,3 +20,12 @@ jobs:
           npm ci
           echo "Run playwright test"
           npm run test:ci
+
+      - name: Upload test results artifacts
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ inputs.testsCategory }}-${{ matrix.os }}
+          retention-days: 1
+          path: |
+            ./testResults

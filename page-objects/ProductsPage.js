@@ -13,6 +13,10 @@ export class ProductsPage {
     await this.page.goto("/", { waitUntil: "load" });
   };
 
+  async waitForSortDropdown() {
+    await this.sortDropdown.waitFor({ state: "visible" });
+  }
+
   addProductToBasket = async (index) => {
     const specificAddButton = this.addButtons.nth(index);
     await specificAddButton.waitFor();
