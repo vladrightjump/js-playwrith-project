@@ -33,6 +33,12 @@ export class ProductsPage {
       expect(basketCountAfterAdding).toBeGreaterThan(basketCountBeforeAdding);
     }
   };
+
+  async toBeGreaterThan(count) {
+    const navigation = new Navigation(this.page);
+    const basketCountAfterAdding = await navigation.getBasketCount();
+    expect(basketCountAfterAdding).toBeGreaterThan(count);
+  }
   sortByCheapest = async () => {
     await this.sortDropdown.waitFor();
     await this.productTitle.first().waitFor();
