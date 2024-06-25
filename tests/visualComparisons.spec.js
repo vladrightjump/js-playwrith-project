@@ -10,7 +10,6 @@ test("example test visual comparisons", async ({ page }) => {
 
 test("example test visual element", async ({ page }) => {
   await page.waitForTimeout(1000);
-  ``;
   await expect(
     page.locator("[data-qa='product-card']:has-text('Astronaut dabbing')")
   ).toHaveScreenshot();
